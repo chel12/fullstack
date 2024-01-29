@@ -11,7 +11,7 @@ var http = require('http');
 /**
  * Get port from environment and store in Express.
  */
-
+//нужно в порту сделать окружение, если нет тогда порт 3000 дефолт
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
