@@ -28,12 +28,16 @@ const login = async (req, res) => {
 	const isPasswordCorrect =
 		user && (await brypt.compare(password, user.password)); //сравнивает пароль который ввели и пароль пользователя
 
+	//секретная строка для генерации токена
+	const secret = process.env.JWT_SECRET;
+
 	//условие проверки если пользователь есть и пароль верный тогда вернуть статус 200 и json
-	if (user && isPasswordCorrect) {
+	if (user && isPasswordCorrect && secret) {
 		res.status(200).json({
 			id: user.id,
 			email: user.email,
 			name: user.name,
+			token: jwt.sign({ id: user.id }, secret, { expiresIn: '30d' }),
 		});
 	} else {
 		//иначе что-то не верно
@@ -53,8 +57,14 @@ const register = async (req, res) => {
 	res.send('register');
 };
 
+/**
+ * @route GET /api/user/current
+ * @desc Текущий пользователь
+ * @access Private
+ */
+
 const current = async (req, res) => {
-	res.send('current');
+	return res.status(200).json(req.user);
 };
 module.exports = {
 	login,
