@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Paths } from './paths';
 import { store } from './app/store';
+import { ConfigProvider, theme } from 'antd';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import App from './App';
@@ -32,7 +33,11 @@ const root = createRoot(container);
 root.render(
 	<React.StrictMode>
 		<Provider store={store}>
-			<RouterProvider router={router} />
+			<ConfigProvider theme={{
+				algorithm:theme.darkAlgorithm
+			}}>
+				<RouterProvider router={router} />
+			</ConfigProvider>
 		</Provider>
 	</React.StrictMode>
 );

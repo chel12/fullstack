@@ -1,7 +1,12 @@
 import React from 'react';
+import Layout from '../../components/Layout/Layout';
 
 const Register = () => {
-	return <div>Register</div>;
+	return (
+		<Layout>
+			<div>Register</div>
+		</Layout>
+	);
 };
 
 export default Register;
