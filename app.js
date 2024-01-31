@@ -22,6 +22,7 @@ app.use(cookieParser()); //парс куки, не буду использова
 
 
 app.use('/api/user', usersRouter);
+app.use('/api/employees', require('./routes/employess'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
