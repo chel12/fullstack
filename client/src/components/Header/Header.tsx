@@ -1,4 +1,4 @@
-import { TeamOutlined } from '@ant-design/icons';
+import { LoginOutlined, TeamOutlined, UserOutlined } from '@ant-design/icons';
 import { Layout, Space, Typography } from 'antd';
 import { Link, NavLink } from 'react-router-dom';
 import { Paths } from '../../paths';
@@ -20,12 +20,14 @@ const Header = () => {
 			</Space>
 			<Space>
 				<Link to={Paths.register}>
-					<CustomButton type="primary">
+					<CustomButton type="primary" icon={<UserOutlined />}>
 						Зарегистрироваться
 					</CustomButton>
 				</Link>
 				<Link to={Paths.login}>
-					<CustomButton type="primary">Войти</CustomButton>
+					<CustomButton type="primary" icon={<LoginOutlined />}>
+						Войти
+					</CustomButton>
 				</Link>
 			</Space>
 		</Layout.Header>
