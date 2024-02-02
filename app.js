@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-
+const cors = require('cors');
 //чтоб экс пресс увидел .env с портом 8000
 require('dotenv').config();
 
@@ -16,6 +16,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 app.use(logger('dev')); //подкл логгер
+app.use(cors()); //вызов как мидлвар
 app.use(express.json()); //посылать в запрос тело
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser()); //парс куки, не буду использовать, но пусть будет
