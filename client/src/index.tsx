@@ -10,6 +10,7 @@ import Register from './pages/Register/Register';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
+import Auth from './features/auth/Auth';
 
 //роутер массив объектов с путями
 const router = createBrowserRouter([
@@ -33,10 +34,13 @@ const root = createRoot(container);
 root.render(
 	<React.StrictMode>
 		<Provider store={store}>
-			<ConfigProvider theme={{
-				algorithm:theme.darkAlgorithm
-			}}>
-				<RouterProvider router={router} />
+			<ConfigProvider
+				theme={{
+					algorithm: theme.darkAlgorithm,
+				}}>
+				<Auth>
+					<RouterProvider router={router} />
+				</Auth>
 			</ConfigProvider>
 		</Provider>
 	</React.StrictMode>
