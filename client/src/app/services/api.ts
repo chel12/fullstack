@@ -3,10 +3,17 @@ import { RootState } from '../store';
 
 const baseQuery = fetchBaseQuery({
 	baseUrl: 'http://localhost:8000/api',
-	// prepareHeaders:(headers,{getState})=>{ //брать токен из хедера на каждый запрос если он там есть
-	// 	const token =
-	// 	(getState() as RootState)
-	// }
+	prepareHeaders: (headers, { getState }) => {
+		//брать токен из хедера на каждый запрос если он там есть
+		//если есть токен в сторе?запиши его в переменную или глянь в локал сторе
+		const token =
+			(getState() as RootState).auth.user?.token ||
+			localStorage.getItem('token');
+
+		if (token && token !== null) {
+			headers.set('authorization', `Bearer ${token}`);
+		}
+	},
 });
 
 //повторы запросов при провале (кол-во)
