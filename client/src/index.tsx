@@ -16,6 +16,7 @@ import { ADDRCONFIG } from 'dns';
 import AddEmployees from './pages/AddEmployees/AddEmployees';
 import Status from './pages/Status/Status';
 import Employee from './pages/Employee/Employee';
+import EditEmployee from './pages/EditEmployee/EditEmployee';
 
 //роутер массив объектов с путями
 const router = createBrowserRouter([
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
 	{
 		path: `${Paths.employee}/:id`,
 		element: <Employee />,
+	},
+	{
+		path: `${Paths.employeeEdit}/:id`,
+		element: <EditEmployee />,
 	},
 ]);
 
