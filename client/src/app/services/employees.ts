@@ -36,8 +36,26 @@ export const employeesApi = api.injectEndpoints({
 			query: (employee) => ({
 				url: '/employees/add/',
 				method: 'POST',
-				body: { employee },
+				body: employee,
 			}),
 		}),
 	}),
 });
+
+export const {
+	useGetAllEmployeesQuery,
+	useGetEmployeeQuery,
+	useEditEmployeeMutation,
+	useRemoveEmployeeMutation,
+	useAddEmployeeMutation,
+} = employeesApi;
+
+export const {
+	endpoints: {
+		getAllEmployees,
+		getEmployee,
+		editEmployee,
+		removeEmployee,
+		addEmployee,
+	},
+} = employeesApi;
