@@ -11,12 +11,13 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 import Auth from './features/auth/Auth';
+import Employees from './pages/Employees/Employees';
 
 //роутер массив объектов с путями
 const router = createBrowserRouter([
 	{
 		path: Paths.home,
-		element: <App />,
+		element: <Employees />,
 	},
 	{
 		path: Paths.login,
