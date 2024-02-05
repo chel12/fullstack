@@ -15,6 +15,7 @@ import Employees from './pages/Employees/Employees';
 import { ADDRCONFIG } from 'dns';
 import AddEmployees from './pages/AddEmployees/AddEmployees';
 import Status from './pages/Status/Status';
+import Employee from './pages/Employee/Employee';
 
 //роутер массив объектов с путями
 const router = createBrowserRouter([
@@ -34,10 +35,15 @@ const router = createBrowserRouter([
 		path: Paths.employeeAdd,
 		element: <AddEmployees />,
 	},
-	//переменная для хранения статусов
+	//переменная для хранения статусов и компонент
 	{
 		path: `${Paths.status}/:status`,
 		element: <Status />,
+	},
+	//карточка сотрудника
+	{
+		path: `${Paths.employee}/:id`,
+		element: <Employee />,
 	},
 ]);
 
