@@ -12,6 +12,9 @@ import reportWebVitals from './reportWebVitals';
 import './index.css';
 import Auth from './features/auth/Auth';
 import Employees from './pages/Employees/Employees';
+import { ADDRCONFIG } from 'dns';
+import AddEmployees from './pages/AddEmployees/AddEmployees';
+import Status from './pages/Status/Status';
 
 //роутер массив объектов с путями
 const router = createBrowserRouter([
@@ -26,6 +29,15 @@ const router = createBrowserRouter([
 	{
 		path: Paths.register,
 		element: <Register />,
+	},
+	{
+		path: Paths.employeeAdd,
+		element: <AddEmployees />,
+	},
+	//переменная для хранения статусов
+	{
+		path: `${Paths.status}/:status`,
+		element: <Status />,
 	},
 ]);
 
